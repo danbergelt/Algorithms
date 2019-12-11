@@ -3,7 +3,21 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  # instantiate infinite number of minimum batches for comparison
+  minBatches = math.inf
+
+  # loop through all ingredients in the recipe
+  for ingredient in recipe:
+    # if we are missing this ingredient, return 0 and break
+    if ingredient not in ingredients:
+      minBatches = 0
+      break
+    # finding the smallest number of minimum batches, and setting that to minBatches
+    if ingredients[ingredient] // recipe[ingredient] < minBatches:
+      minBatches = ingredients[ingredient] // recipe[ingredient]
+  
+  return minBatches
+
 
 
 if __name__ == '__main__':
